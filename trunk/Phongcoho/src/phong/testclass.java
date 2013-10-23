@@ -10,21 +10,6 @@ public class testclass {
 		System.out.println("cho hoa cui bap");
 		System.out.println("Phong cui bap");
 		System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
-		System.out.println("Phong cui bap");
-		
+	
 	}
-
 }
