@@ -9,6 +9,21 @@ public class testclass {
 		// TODO Auto-generated method stub
 		System.out.println("cho hoa cui bap");
 		System.out.println("Phong cui bap");
+		System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");System.out.println("cho hoa cui bap");
+		System.out.println("Phong cui bap");
 		
 	}
 
