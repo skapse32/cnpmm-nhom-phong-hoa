@@ -150,4 +150,33 @@ public class SinhvienDAO implements SinhVienInterface {
 		return false;
 	}
 
+	@Override
+	public List<SinhVien> findSinhVien(String mssv, String hoTen,Date start, Date end) {
+		try {
+			PreparedStatement statement = conn.prepareStatement("SELECT * FROM studenttb WHERE MSSV LIKE ? OR HoVaTen = ? OR (NgaySinh BETWEEN ? AND ? )");
+			statement.setString(1, "%" + mssv + "%");
+			statement.setNString(2, hoTen);
+			statement.setString(3, "#" + start + "#");
+			statement.setString(4,  "#" + end + "#");
+			System.out.println(statement.toString());
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+				SinhVien SV = new SinhVien();
+				SV.setMssv(rs.getString("MSSV"));
+				SV.setHoTen(rs.getNString("HoVaTen"));
+				SV.setGioiTinh(rs.getBoolean("Phai"));
+				SV.setNoiSinh(rs.getNString("NoiSinh"));
+				SV.setNgaySinh(rs.getDate("NgaySinh"));
+				String[] sothich = rs.getNString("Sothich").split(",");
+				SV.setMonTheThaoYeuThich(sothich);
+				SV.setQuaTrinhHocTap(rs.getNString("QuaTrinhHocTap"));
+				DSSV.add(SV);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return DSSV;
+	}
+
 }
