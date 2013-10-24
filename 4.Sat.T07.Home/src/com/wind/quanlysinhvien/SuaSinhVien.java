@@ -2,6 +2,7 @@ package com.wind.quanlysinhvien;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -72,7 +73,7 @@ public class SuaSinhVien extends HttpServlet {
 				out.println("<div id ='err'> Update Unsuccess");
 			}
 		}
-		out.println(" <form id='form1' name='form1' method=\"POST\" action=\"SuaSinhVienAction\">");
+		out.println(" <form id='form1' name='form1' method=\"POST\" action=\"SuaSinhVien\">");
 		out.println("<table width=\"700\" align=\"center\">");
 		out.println("<tr><td>MSSV</td>");
 		out.println("<td><input type=\"text\" name=\"mssv\" id=\"text\" value='"
@@ -94,7 +95,8 @@ public class SuaSinhVien extends HttpServlet {
 			if (sothich[j].equals(sothichall[i])) {
 				out.println("<input type=\"checkbox\" name=\"check\" checked value='"
 						+ sothichall[i] + "'/>" + sothichall[i]);
-				j++;
+				if(j < sothich.length-1)//loi khi check boi loi va bong chuyen
+					j++;
 			} else {
 				out.println("<input type=\"checkbox\" name=\"check\" value='"
 						+ sothichall[i] + "'/>" + sothichall[i]);
@@ -115,7 +117,32 @@ public class SuaSinhVien extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		String mssv = request.getParameter("mssv");
+		String hovaten = request.getParameter("hovaten");
+		Boolean phai = Boolean.valueOf(request.getParameter("phai"));
+		String noisinh = request.getParameter("noisinh");
+		Date ngaysinh = Date.valueOf(request.getParameter("ngaysinh"));
+		String quatrinhhoctap = request.getParameter("quatrinhhoctap");
+		String[] sothich = request.getParameterValues("check");
+
+		SinhVien SV = new SinhVien();
+		SV.setMssv(mssv);
+		SV.setHoTen(hovaten);
+		SV.setGioiTinh(phai);
+		SV.setNoiSinh(noisinh);
+		System.out.println(hovaten);
+		SV.setNgaySinh(ngaysinh);
+		SV.setMonTheThaoYeuThich(sothich);
+		SV.setQuaTrinhHocTap(quatrinhhoctap);
+		SinhVienInterface svi = new SinhvienDAO();
+		if (svi.UpdateSV(SV)) {
+			response.sendRedirect("SuaSinhVien?error=Success&id="+ mssv);
+			System.out.println("done");
+		} else {
+			response.sendRedirect("SuaSinhVien?error=Unsuccess&id="+ mssv);
+			System.out.println("fail");
+		}
 	}
 
 }

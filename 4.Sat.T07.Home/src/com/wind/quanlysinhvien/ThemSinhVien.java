@@ -2,12 +2,17 @@ package com.wind.quanlysinhvien;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.wind.connection.SinhvienDAO;
+import com.wind.modal.SinhVien;
+import com.wind.modal.SinhVienInterface;
 
 /**
  * Servlet implementation class ThemSinhVien
@@ -57,7 +62,7 @@ public class ThemSinhVien extends HttpServlet {
 				out.println(error + "</div></center>");
 			}
 		}
-		out.println(" <form id='form1' name='form1' method=\"POST\" action=\"ThemSinhVienAction\">");
+		out.println(" <form id='form1' name='form1' method=\"POST\" action=\"ThemSinhVien\">");
 		out.println("<table width=\"700\" align=\"center\">");
 		out.println("<tr><td>MSSV</td>");
 		out.println("<td><input type=\"text\" name=\"mssv\" id=\"textfield\" /></td></tr>");
@@ -82,7 +87,34 @@ public class ThemSinhVien extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		String mssv = request.getParameter("mssv");
+		if (mssv != null && mssv.length() == 0) {
+			response.sendRedirect("ThemSinhVien?errors=MSSV INVALID");
+			return;
+		}
+		String hovaten = request.getParameter("hovaten");
+		Boolean phai = Boolean.valueOf(request.getParameter("phai"));
+		String noisinh = request.getParameter("noisinh");
+		Date ngaysinh = Date.valueOf(request.getParameter("ngaysinh"));
+		String quatrinhhoctap = request.getParameter("quatrinhhoctap");
+		/* System.out.println(Boolean.valueOf(phai) +""+ ngaysinh); */
+		String[] sothich = request.getParameterValues("check");
+
+		SinhVien SV = new SinhVien();
+		SV.setMssv(mssv);
+		SV.setHoTen(hovaten);
+		SV.setGioiTinh(phai);
+		SV.setNoiSinh(noisinh);
+		SV.setNgaySinh(ngaysinh);
+		SV.setMonTheThaoYeuThich(sothich);
+		SV.setQuaTrinhHocTap(quatrinhhoctap);
+		SinhVienInterface svi = new SinhvienDAO();
+		if (svi.AddSV(SV)) {
+			response.sendRedirect("DanhSachSinhVien");
+		} else {
+			response.sendRedirect("ThemSinhVien");
+		}
 	}
 
 }
