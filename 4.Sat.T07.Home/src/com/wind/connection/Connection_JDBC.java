@@ -18,7 +18,7 @@ public class Connection_JDBC {
 
 	public static Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/datasat", "root", "root");
+				"jdbc:mysql://localhost:3306/datasat", "root", "@121192");
 	}
 
 	public  static void closeConnection(Connection cnn) throws SQLException {
