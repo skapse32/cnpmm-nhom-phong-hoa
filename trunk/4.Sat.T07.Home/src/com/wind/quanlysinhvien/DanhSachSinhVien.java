@@ -63,8 +63,8 @@ public class DanhSachSinhVien extends HttpServlet {
 				+ "<center><h2 style=\"color:#007A29\">Danh Sách Sinh Viên</h2></center>");
 		
 		out.println("<center>");
-		out.println("<div id=\"fix\"><a href='ThemSinhVien'>Thêm Sinh Viên</a>|<a href='timkiem'>Tim Kiếm</a>|<a href='DanhSachSV'>Save file Excel</a><input type='submit' name='xoa' value='Delete'/></div>");
 		out.println("<form name='form1' method=\"POST\" action=\"XoaSinhVien\"><div id='main' ><table id=\"customers\">");
+		out.println("<div id=\"fix\"><a href='ThemSinhVien'>Thêm Sinh Viên</a>|<a href='timkiem'>Tim Kiếm</a>|<a href='DanhSachSV'>Save file Excel</a><input type='submit' name='xoa' value='Delete'/></div>");
 		out.println("<tr><th>MSSV</th><th>Họ Và Tên</th><th>Sửa</th><th>Xóa</th></tr>");
 		for (SinhVien s : sv) {
 			out.println("<tr>");
