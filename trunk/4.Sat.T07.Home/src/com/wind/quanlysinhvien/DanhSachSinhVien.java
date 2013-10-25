@@ -55,12 +55,16 @@ public class DanhSachSinhVien extends HttpServlet {
 				+ "#customers td, #customers th{ font-size:1em;border:1px solid #98bf21;padding:3px 7px 2px 7px;}"
 				+ "#customers th {font-size:1.1em;text-align:left;padding-top:5px;padding-bottom:4px;background-color:#A7C942;color:#ffffff;}"
 				+ "#customers tr:nth-child(2n+1) td {color:#000000;background-color:#EAF2D3;}"
+				+ "#fix { position:fixed; }"
 				+ "#main {background-color:#EAF2D3;}"
 				+ "</style>"
 				+ "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><title>Danh Sách Sinh Viên</title></head>\n"
 				+ "<body>\n"
 				+ "<center><h2 style=\"color:#007A29\">Danh Sách Sinh Viên</h2></center>");
-		out.println("<center><form name='form1' method=\"POST\" action=\"XoaSinhVien\"><div id='main' ><table id=\"customers\">");
+		
+		out.println("<center>");
+		out.println("<div id=\"fix\"><a href='ThemSinhVien'>Thêm Sinh Viên</a>|<a href='timkiem'>Tim Kiếm</a>|<a href='DanhSachSV'>Save file Excel</a><input type='submit' name='xoa' value='Delete'/></div>");
+		out.println("<form name='form1' method=\"POST\" action=\"XoaSinhVien\"><div id='main' ><table id=\"customers\">");
 		out.println("<tr><th>MSSV</th><th>Họ Và Tên</th><th>Sửa</th><th>Xóa</th></tr>");
 		for (SinhVien s : sv) {
 			out.println("<tr>");
@@ -73,7 +77,6 @@ public class DanhSachSinhVien extends HttpServlet {
 			out.println("</tr>");
 		}
 		out.println("</table></div>");
-		out.println("<a href='ThemSinhVien'>Thêm Sinh Viên</a>|<a href='timkiem'>Tim Kiếm</a>|<a href='DanhSachSV'>Save file Excel</a><input type='submit' name='xoa' value='Delete'/>");
 		out.println("</center></form></body></html>");
 
 	}
