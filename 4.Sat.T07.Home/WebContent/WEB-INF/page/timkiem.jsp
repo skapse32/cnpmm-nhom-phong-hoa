@@ -43,7 +43,7 @@ tr:nth-child(2n+1) td {
 $(document).ready(
 	function() {
 		$.ajax({
-			url : "TimKiemSinhVien",
+			url : "LoadResultSearchSaved",
 			type : 'GET',
 			success : function(result) {
 				var $table = $('<table id="customers">').appendTo($('#result'));
@@ -88,7 +88,7 @@ $(document).ready(
 
 </head>
 <body>
-	<form id="formContent" action="SaveResultSearch" method="post" enctype="multipart/form-data">
+	<form id="formContent" action="LoadResultSearchSaved" method="post" enctype="multipart/form-data">
 		<table width="750" border="1" align="center">
 			<tr>
 				<td colspan="3">Điều kiện tìm</td>
@@ -114,7 +114,8 @@ $(document).ready(
 					value="Tìm"> <input type="reset" name="Reset" id="Reset"
 					value="Reset"> <input type="button" name="luu" id="luu"
 					value="lưu"> 
-					<input type="file" name="file" /> <input type="submit" id="load" name="load" value="load"/></td>
+					<input type="file" name="file" /> <input type="submit" id="load" name="load" value="load"/> 
+					<input type="button" id="back" name="back" value="back" onclick="window.location = 'DanhSachSinhVien'"/></td>
 			</tr>
 			<tr>
 				<td colspan="3"><div id="result">

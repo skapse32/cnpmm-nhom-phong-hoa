@@ -37,11 +37,6 @@ public class TimKiemSinhVien extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//lay ham nay de lay noi dung file
-		response.setContentType("application/json");
-	    response.setCharacterEncoding("UTF-8");
-		HttpSession sesion = request.getSession();
-		response.getWriter().write(sesion.getAttribute("contentFile").toString());
 	}
 
 	/**

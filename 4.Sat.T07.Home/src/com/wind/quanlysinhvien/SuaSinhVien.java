@@ -106,7 +106,7 @@ public class SuaSinhVien extends HttpServlet {
 		out.println("</div></td></tr>");
 		out.println("<tr><td>Quá trình học tập</td><td><textarea name=\"quatrinhhoctap\" id=\"textarea\" cols=\"45\" rows=\"5\">"
 				+ sv.getQuaTrinhHocTap() + "</textarea></td></tr>");
-		out.println("<tr><td></td><td><input type=\"submit\" name=\"sua\" value='Sửa Sinh Viên'/></td></tr>");
+		out.println("<tr><td></td><td><input type=\"submit\" name=\"sua\" value='Sửa Sinh Viên'/> <input type=\"button\" name=\"back\" value='back' onclick=\"window.location ='DanhSachSinhVien'\"/></td></tr>");
 		out.println("</table></form></div>");
 		out.println("</body></html>");
 	}

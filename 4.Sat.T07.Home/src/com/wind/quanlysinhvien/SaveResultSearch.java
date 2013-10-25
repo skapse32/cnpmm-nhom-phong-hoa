@@ -58,36 +58,7 @@ public class SaveResultSearch extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Come Here");
-		FileItemFactory factory =  new DiskFileItemFactory();
-		ServletFileUpload upload = new ServletFileUpload(factory);
 		
-		InputStream is = null;
-		try {
-			FileItemIterator items = upload.getItemIterator(request);
-			while(items.hasNext()){
-				FileItemStream item = items.next();
-				if(!item.isFormField()){
-					//no la upload file
-					is= item.openStream();
-					BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-					StringBuilder contentFile = new StringBuilder();
-					String line = null;
-					while((line = br.readLine()) != null){
-						contentFile.append(line);
-					}
-					String content = contentFile.toString();
-					System.out.println(content);
-					HttpSession session = request.getSession();
-					session.setAttribute("contentFile", content);
-					response.sendRedirect("timkiem");
-				}
-			}
-			
-		} catch (FileUploadException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }
