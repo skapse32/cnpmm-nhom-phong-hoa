@@ -153,12 +153,15 @@ public class SinhvienDAO implements SinhVienInterface {
 	@Override
 	public List<SinhVien> findSinhVien(String mssv, String hoTen,Date start, Date end) {
 		try {
-			PreparedStatement statement = conn.prepareStatement("SELECT * FROM studenttb WHERE MSSV LIKE ? OR HoVaTen = ? OR (NgaySinh BETWEEN ? AND ? )");
+			if(end == null && start == null){
+				end = new Date(0);
+				start = new Date(0);
+			}
+			PreparedStatement statement = conn.prepareStatement("SELECT * FROM studenttb WHERE (MSSV LIKE ? AND HoVaTen LIKE ?) AND (NgaySinh BETWEEN ? AND ? )");
 			statement.setString(1, "%" + mssv + "%");
-			statement.setNString(2, hoTen);
-			statement.setString(3, "#" + start + "#");
-			statement.setString(4,  "#" + end + "#");
-			System.out.println(statement.toString());
+			statement.setNString(2,"%" + hoTen + "%");
+			statement.setDate(3, start );
+			statement.setDate(4, end );
 			ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
 				SinhVien SV = new SinhVien();
