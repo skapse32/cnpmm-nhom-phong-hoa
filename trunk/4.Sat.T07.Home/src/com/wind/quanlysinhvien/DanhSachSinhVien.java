@@ -47,14 +47,15 @@ public class DanhSachSinhVien extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		SinhVienInterface dao = new SinhvienDAO();
 		List<SinhVien> sv = dao.DanhSachSV();
+		
 		out.println("<!DOCTYPE html>\n"
 				+ "<html>\n"
 				+ "<head>"
 				+ "<style> "
-				+ "#customers{font-family:\"Trebuchet MS\", Arial, Helvetica, sans-serif; width:600px;border-collapse:collapse;}"
+				+ "#customers{font-family:\"Trebuchet MS\", Arial, Helvetica, sans-serif; width:600px;border-collapse:collapse;background-color:white}"
 				+ "#customers td, #customers th{ font-size:1em;border:1px solid #98bf21;padding:3px 7px 2px 7px;}"
-				+ "#customers th {font-size:1.1em;text-align:left;padding-top:5px;padding-bottom:4px;background-color:#A7C942;color:#ffffff;}"
-				+ "#customers tr:nth-child(2n+1) td {color:#000000;background-color:#EAF2D3;}"
+				+ "#customers th {font-size:1.1em;text-align:left;padding-top:5px;padding-bottom:4px;background-color:#1964D4;color:#ffffff;}"
+				+ "#customers tr:nth-child(2n+1) td {color:#000000;background-color:#E0EBFF;}"
 				+ "#fix { position:fixed; }"
 				+ "#main {background-color:#EAF2D3;}"
 				+ "</style>"
@@ -63,6 +64,7 @@ public class DanhSachSinhVien extends HttpServlet {
 				+ "<center><h2 style=\"color:#007A29\">Danh Sách Sinh Viên</h2></center>");
 		
 		out.println("<center>");
+		
 		out.println("<form name='form1' method=\"POST\" action=\"XoaSinhVien\"><div id='main' ><table id=\"customers\">");
 		out.println("<div id=\"fix\"><a href='ThemSinhVien'>Thêm Sinh Viên</a>|<a href='timkiem'>Tim Kiếm</a>|<a href='DanhSachSV'>Save file Excel</a><input type='submit' name='xoa' value='Delete'/></div>");
 		out.println("<tr><th>MSSV</th><th>Họ Và Tên</th><th>Sửa</th><th>Xóa</th></tr>");

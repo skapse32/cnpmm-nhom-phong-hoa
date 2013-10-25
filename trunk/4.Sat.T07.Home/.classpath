@@ -13,14 +13,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/nvh04_000/.m2/repository/mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="mysql"/>
-			<attribute name="maven.artifactId" value="mysql-connector-java"/>
-			<attribute name="maven.version" value="5.1.26"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="E:/Dropbox/TieuLuanChuyenNganh/com.mysql.jdbc_5.1.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
